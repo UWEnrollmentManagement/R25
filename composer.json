@@ -1,0 +1,24 @@
+{
+  "name": "uwdoem/r25",
+  "description": "Client library for the University of Washington R25 Web Service",
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+      "test/"
+    ]
+  },
+  "require": {
+    "uwdoem/connection": "2.*"
+  },
+  "require-dev": {
+    "uwdoem/standard": "*",
+    "phpunit/phpunit": "4.5.*",
+    "phpdocumentor/phpdocumentor": "2.7.*",
+    "codeclimate/php-test-reporter": "dev-master",
+    "squizlabs/php_codesniffer": "2.*"
+  }
+}
