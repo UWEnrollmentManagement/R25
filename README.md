@@ -12,34 +12,16 @@ For example:
 
 ``` 
     // Intialize the required settings
-    define('UW_WS_BASE_PATH', '/path/to/my/private.key');
+    define('R25_BASE_PATH', 'https://r25web.admin.washington.edu/r25ws/servlet/wrd/run/');
+
     define('UW_WS_SSL_KEY_PATH', '/path/to/my/private.key');
     define('UW_WS_SSL_CERT_PATH', '/path/to/my/public_cert.pem');
     define('UW_WS_SSL_KEY_PASSWD', 'myprivatekeypassword');  // Can be blank for no password: ''
-    
-    /* Query the web services */
-    $student = Student::fromStudentNumber("1033334");
-    
-    echo $student->getAttr("RegisteredFirstMiddleName");
-    // "JAMES AVERAGE"
-    
-    echo $student->getAttr("UWNetID");
-    // "javerage"
-    
-    /* Retrieve registration for James Average*/
-    $registrations = $student->registrationSearch("2009", "summer");
-    echo $registrations[0]["CurriculumAbbreviation"];  // "TRAIN"
-    echo $registrations[0]["CourseNumber"];  // "100"
-    
-    /* Retrieve employee information from the web services */
-    $employee = Employee::fromUWNetID("jschilz");
-    
-    echo $employee->getAttr("Department1");
-    // "Student Financial Aid Office"
-    
-    echo $employee->getAttr("Title1");
-    // "Web Developer"
 
+    $spaces = Space::getSpaces();
+
+    echo $spaces[5]->getAttr('space_name');
+    // KIN 114
 ```
 
 Installation
