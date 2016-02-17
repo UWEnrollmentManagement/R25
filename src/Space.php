@@ -114,6 +114,22 @@ class Space
     }
 
     /**
+     * @param integer $spaceId
+     * @return Space
+     */
+    public static function fromSpaceId($spaceId)
+    {
+        $resp = static::getConnection()->execGET(
+            "space.xml?space_id=$spaceId"
+        );
+
+        $reader = new \XMLReader();
+        $reader->xml($resp);
+
+        return static::fromXMLReader($reader);
+    }
+
+    /**
      * @return Connection
      * @throws \Exception If any of the required constants have not been set.
      */

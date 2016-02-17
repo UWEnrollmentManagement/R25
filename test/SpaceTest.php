@@ -8,7 +8,7 @@ use UWDOEM\Space\Space;
 class SpaceTest extends PHPUnit_Framework_TestCase
 {
 
-    public function testConnection()
+    public function testGetSpaces()
     {
 
         define('R25_BASE_PATH', 'https://r25web.admin.washington.edu/r25ws/servlet/wrd/run/');
@@ -18,6 +18,15 @@ class SpaceTest extends PHPUnit_Framework_TestCase
         define('UW_WS_SSL_KEY_PASSWD', 'self-signed-password');
 
         $this->assertEquals(1939, sizeof(MockSpace::getSpaces()));
+    }
+
+    public function testGetSpaceFromId()
+    {
+        $spaceId = 4650;
+
+        $space = MockSpace::fromSpaceId($spaceId);
+
+        $this->assertEquals('ADMCBHS106', $space->getAttr('space_name'));
     }
 
     public function testSetGetAttr()
